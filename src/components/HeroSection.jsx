@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../assets/pexels-matreding-31452657.jpg";
+import image from "../assets/pexels-matreding-31452657.webp";
 export default function HeroSection() {
   return (
     <section className="h-[750px] flex flex-col md:flex-row justify-center items-center pt-40 pb-36 px-6">
@@ -15,6 +15,7 @@ export default function HeroSection() {
         <img
           src={image}
           alt=""
+          loading="lazy"
           className="w-full md:w-80 lg:w-9/12 h-auto object-cover rounded-3xl"
         />
       </div>

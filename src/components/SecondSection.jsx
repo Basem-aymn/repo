@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import image1 from "../assets/pexels-chaitaastic-1796705.jpg";
-import image2 from "../assets/pexels-liene-ratniece-570596-1329510.jpg";
-import image3 from "../assets/pexels-martijn-stoof-2150654344-33992408.jpg";
+import image1 from "../assets/pexels-chaitaastic-1796705.webp";
+import image2 from "../assets/pexels-liene-ratniece-570596-1329510.webp";
+import image3 from "../assets/pexels-martijn-stoof-2150654344-33992408.webp";
 
 export default function SecondSection() {
   const containerVariants = {
@@ -31,6 +31,7 @@ export default function SecondSection() {
               <img
                 src={image1}
                 alt="Shoes"
+                loading="lazy"
                 className="w-full h-48 object-cover"
               />
             </figure>
@@ -51,6 +52,7 @@ export default function SecondSection() {
               <img
                 src={image2}
                 alt="Shoes"
+                loading="lazy"
                 className="w-full h-48 object-cover"
               />
             </figure>
@@ -71,6 +73,7 @@ export default function SecondSection() {
               <img
                 src={image3}
                 alt="Shoes"
+                loading="lazy"
                 className="w-full h-48 object-cover"
               />
             </figure>

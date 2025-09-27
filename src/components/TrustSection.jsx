@@ -1,5 +1,15 @@
 import React from "react";
-import { FaTruck, FaLock, FaHeadset, FaDollarSign, FaGlobe, FaRocket, FaMapMarkerAlt, FaShieldAlt, FaLeaf } from "react-icons/fa";
+import {
+  FaTruck,
+  FaLock,
+  FaHeadset,
+  FaDollarSign,
+  FaGlobe,
+  FaRocket,
+  FaMapMarkerAlt,
+  FaShieldAlt,
+  FaLeaf,
+} from "react-icons/fa";
 
 export default function TrustSection() {
   const points = [
@@ -18,7 +28,10 @@ export default function TrustSection() {
       </h2>
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {points.map((point, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div
+            key={index}
+            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <div className="text-4xl mb-4">{point.icon}</div>
             <p className="text-gray-700 font-medium">{point.text}</p>
           </div>
