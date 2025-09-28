@@ -1,0 +1,87 @@
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
+import BackToTop from "../components/BackToTop";
+import { FaBolt } from "react-icons/fa";
+import image3 from "../assets/pexels-martijn-stoof-2150654344-33992408.webp";
+
+export default function OvernightPage() {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+  };
+
+  const overnightOptions = [
+    { title: t("overnightCityDelivery"), description: t("overnightCityDeliveryDesc"), price: "120 EUR", image: image3 },
+    { title: t("overnightInterCity"), description: t("overnightInterCityDesc"), price: "200 EUR", image: image3 },
+    { title: t("overnightPremium"), description: t("overnightPremiumDesc"), price: "150 EUR", image: image3 },
+  ];
+
+  return (
+    <div className="flex justify-center">
+      <div className="container w-[100%] lg:w-[90%]">
+        <Nav />
+        <section className="py-16 px-6 mt-16">
+          <h2 className="text-3xl font-bold text-center uppercase mb-8">{t("overnightDeliveryServices")}</h2>
+          <p className="text-center text-lg mb-8">{t("overnightDescription")}</p>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" 
+            variants={containerVariants} 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }}
+          >
+            {overnightOptions.map((option, index) => (
+              <motion.div key={index} className="relative bg-gradient-to-br from-purple-50 via-white to-violet-100 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 w-full mt-4 md:mt-0 border border-purple-200 overflow-hidden group" variants={cardVariants}>
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-violet-500 text-white p-2 rounded-full shadow-lg">
+                  <FaBolt className="text-lg" />
+                </div>
+                <div className="text-center">
+                  <div className="mb-4">
+                    <img
+                      src={option.image}
+                      alt={option.title}
+                      loading="lazy"
+                      className="w-full h-32 object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors duration-300">{option.title}</h3>
+                  <p className="text-gray-600 mb-3 leading-relaxed text-sm">
+                    {option.description}
+                  </p>
+                  <p className="text-2xl font-bold text-purple-600 mb-4">{option.price}</p>
+                  <button className="inline-block bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-2 rounded-full font-semibold hover:from-purple-700 hover:to-violet-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105">
+                    {t("orderNow")}
+                  </button>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-violet-400"></div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+        <Footer />
+      </div>
+      <WhatsAppButton />
+      <BackToTop />
+    </div>
+  );
+}

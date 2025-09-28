@@ -3,14 +3,17 @@ import Slider from 'react-slick';
 import { FaStar } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from 'react-i18next';
 
 export default function ReviewsSection() {
+  const { t } = useTranslation();
+
   const reviews = [
-    { name: "John Doe", text: "Excellent service! Fast and reliable delivery.", rating: 5 },
-    { name: "Jane Smith", text: "Very satisfied with the packaging and customer support.", rating: 5 },
-    { name: "Mike Johnson", text: "Great experience, will use again.", rating: 4 },
-    { name: "Sarah Wilson", text: "Timely and secure delivery.", rating: 5 },
-    { name: "David Brown", text: "Highly recommend this service.", rating: 5 },
+    { name: t('review1_name'), text: t('review1_text'), rating: 5 },
+    { name: t('review2_name'), text: t('review2_text'), rating: 5 },
+    { name: t('review3_name'), text: t('review3_text'), rating: 4 },
+    { name: t('review4_name'), text: t('review4_text'), rating: 5 },
+    { name: t('review5_name'), text: t('review5_text'), rating: 5 },
   ];
 
   const settings = {
@@ -36,7 +39,7 @@ export default function ReviewsSection() {
           z-index: 10 !important;
         }
       `}</style>
-      <h2 className="text-4xl font-bold mb-12 text-gray-800">Customer Reviews</h2>
+      <h2 className="text-4xl font-bold mb-12 text-gray-800">{t('Customer Reviews')}</h2>
       <div className="max-w-4xl mx-auto shadow-2xl rounded-2xl px-6">
         <Slider {...settings}>
           {reviews.map((review, index) => (
