@@ -67,9 +67,9 @@ export default function PackagesPage() {
                   <div className="card-body">
                     <h2 className="card-title">{pkg.title}</h2>
                     <p>{pkg.description}</p>
-                    <p className="text-2xl font-bold text-green-600">{pkg.price}</p>
+                    <p className="text-2xl font-bold text-yellow-600">{pkg.price}</p>
                     <div className="card-actions justify-end">
-                      <button className="bg-black text-white px-4 py-2 rounded hover:bg-white hover:text-black hover:border hover:border-black transition duration-300 cursor-pointer">{t("bookNow")}</button>
+                      <button className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-white hover:text-yellow-600 hover:border hover:border-yellow-600 transition duration-300 cursor-pointer">{t("bookNow")}</button>
                     </div>
                   </div>
                 </div>
